@@ -9,6 +9,8 @@ let userChoice = document.getElementById('textBox');
 
 // * As a user, I expect the computer to choose R, P, or S in return.
 function computer()
+
+console.log("Hello World!")
   
 // * As a user, I want the option to play again whether I win or lose.
 
