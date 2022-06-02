@@ -15,6 +15,7 @@ G();
 function computer()
 
 console.log("Hello World!")
+console.log("Nate The Great")
   
 // * As a user, I want the option to play again whether I win or lose.
 
