@@ -1,5 +1,9 @@
 // * As a user, I want to play Rock, Paper, Scissors against an automated opponent.
 let userChoice = document.getElementById('textBox');
+function G() {
+  console.log('Cesar Is Awesome')
+}
+G();
 
 
 
