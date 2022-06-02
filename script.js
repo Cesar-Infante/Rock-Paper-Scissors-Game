@@ -1,15 +1,30 @@
 // * As a user, I want to play Rock, Paper, Scissors against an automated opponent.
 let userChoice = document.getElementById('textBox');
-
+let gameTitle = document.getElementById('title');
 
 // * As a user, I can enter R, P, or S to signify my choice of rock, paper, or scissors.
 
+const mainChoices = ['r', 'p', 's'];
+
+userChoice.addEventListener('keydown', function (e) {
+  if (e.code === 'Enter') {
+    if ( mainChoices.some(el => userChoice.value[0].toLowerCase().includes(el))) {
+      console.log(userChoice.value[0].toLowerCase());
+    } else {
+        gameTitle.textContent = 'why the hell did you type that'
+      setTimeout(() => {
+        gameTitle.textContent = 'Rock Paper Scissors'
+      }, 2000)
+    }
+    userChoice.value = '';
+  } else return
+}
+);
 
 // * As a user, I expect the computer to choose R, P, or S in return.
 function botChoiceRandom() {
-  const botChoice = Math.floor(Math.random() * 3);
-  let choices = ['r', 'p', 's'];
-  console.log(choices[botChoice])
+  const botChoice = Math.floor(Math.random() * mainChoices.length);
+  console.log(mainChoices[botChoice])
 }
 
 botChoiceRandom()
