@@ -29,7 +29,16 @@ function botChoiceRandom() {
 
 botChoiceRandom()
 // * As a user, I want the option to play again whether I win or lose.
-
+function playAgain() {
+  if (userChoice === botChoice) {
+    return "TIE";
+  }
+  else if (userChoice > botChoice) {
+    return "User Wins!";
+  }
+  else (userChoice < botChoice)
+    return "Computer Wins!";
+}
 
 // * As a user, I want to see my total wins, ties, and losses after each round.
 
