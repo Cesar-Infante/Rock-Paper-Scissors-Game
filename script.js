@@ -1,6 +1,10 @@
 // * As a user, I want to play Rock, Paper, Scissors against an automated opponent.
 let name;
 let usersChoice;
+let ties = 0;
+let wins = 0;
+let losses = 0;
+
 function startGame() {
   // prompt the user for their name and store that value
   name = window.prompt('What is your name?');
@@ -23,11 +27,11 @@ function checkChoice() {
   // check to see if the user input either r,p,s or rock, paper, scissors
   if (usersChoice === null) {
     return;
-  } else if (usersChoice === 'R' || usersChoice === 'r' || usersChoice === "Rock" || usersChoice === 'rock') {
+  } else if (usersChoice === 'R' || usersChoice === 'r') {
     computerChoice();
-  } else if (usersChoice === 'P' || usersChoice === 'p' || usersChoice === "Paper" || usersChoice === 'paper') {
+  } else if (usersChoice === 'P' || usersChoice === 'p') {
     computerChoice();
-  } else if (usersChoice === 'S' || usersChoice === 's' || usersChoice === "Scissors" || usersChoice === 'scissors') {
+  } else if (usersChoice === 'S' || usersChoice === 's') {
     computerChoice();
   } else {
     window.alert('Error: Wrong choice selected');
@@ -36,21 +40,48 @@ function checkChoice() {
 }
 
 function computerChoice() {
-  window.alert(`Hello World`)
+  // * As a user, I expect the computer to choose R, P, or S in return.
+  let choice = ['R', 'P', 'S'];
+  let selectChoice = Math.floor(Math.random() * choice.length);
+  let computerChoice = choice[selectChoice];
+
+  window.alert(`The computer chose ${computerChoice}`)
+// * As a user, I want to see my total wins, ties, and losses after each round.
+// * As a user, I want the option to play again whether I win or lose.
+  if (usersChoice.toLowerCase() === computerChoice.toLowerCase()) {
+    ties++;
+    window.alert(`${name} it's is a tie! you have
+      ${wins} wins
+      ${losses} losses
+      ${ties} ties`);
+    getChoice();
+  } else if (
+    (usersChoice === 'R' && computerChoice === 'S') ||
+    (usersChoice === 'P' && computerChoice === 'R') ||
+    (usersChoice === 'S' && computerChoice === 'P')
+  ) {
+    wins++;
+    window.alert(`${name} you win! you have
+      ${wins} wins
+      ${losses} losses
+      ${ties} ties`);
+      getChoice();
+  } else {
+    losses++;
+    window.alert(`${name} you loser! You have
+      ${wins} wins
+      ${losses} losses
+      ${ties} ties `);
+      getChoice();
+  }
 }
 
 
-// * As a user, I can enter R, P, or S to signify my choice of rock, paper, or scissors.
 
 
 
-// * As a user, I expect the computer to choose R, P, or S in return.
 
 
 
-// * As a user, I want the option to play again whether I win or lose.
 
-
-
-// * As a user, I want to see my total wins, ties, and losses after each round.
 
